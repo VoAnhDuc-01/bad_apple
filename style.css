@@ -1,0 +1,171 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+h1 {
+    text-align: center;
+    margin: 30px 0;
+    color: #8e44ad;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 3px;
+    background: linear-gradient(to right, #8e44ad, #9b59b6);
+    margin: 10px auto;
+}
+
+
+.file-section {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.file-section:hover {
+    transform: translateY(-5px);
+}
+
+.file-section h2 {
+    background: linear-gradient(to right, #8e44ad, #9b59b6);
+    color: white;
+    padding: 15px 20px;
+    font-size: 1.5rem;
+}
+
+.content {
+    padding: 20px;
+}
+
+.video-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.video-container h3 {
+    margin-bottom: 15px;
+    color: #8e44ad;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .file-section h2 {
+        font-size: 1.3rem;
+    }
+    
+    video {
+        width: 100%;
+    }
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.file-section {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+#file1 { animation-delay: 0.1s; }
+#file2 { animation-delay: 0.3s; }
+#file3 { animation-delay: 0.5s; }
+
+
+/* put it in the end of file style.css */
+
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+/* Lớp phủ màu đen mờ */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+
+.container {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .video-background {
+        display: none;
+    }
+    body {
+        background: url('videos/background-fallback.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
